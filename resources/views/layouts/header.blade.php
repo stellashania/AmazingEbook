@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-light shadow-sm" style="background-color: #a5d3e4">
+<nav class="navbar navbar-expand-md navbar-light shadow-sm" style="background-color: #98c1d9">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
             {{-- {{ config('app.name', 'Laravel') }} --}}
@@ -19,6 +19,18 @@
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ms-auto">
                 <!-- Authentication Links -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('register') }}">
+                        Sign Up
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('login') }}">
+                        Login
+                    </a>
+                </li>
+
                 {{-- @guest
                     @if (Route::has('register'))
                         <li class="nav-item">

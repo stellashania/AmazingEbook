@@ -88,9 +88,9 @@
 
         {{-- HEADER --}}
         @if (isset(Auth::user()->id))
-            @include('layouts.header')
-        @else
             @include('layouts.header2')
+        @else
+            @include('layouts.header')
         @endif
 
         {{-- NAVBAR --}}
@@ -102,6 +102,7 @@
             @endif
         @endif
 
+        {{-- CONTENT --}}
         <main class="py-4">
             @yield('content')
         </main>
