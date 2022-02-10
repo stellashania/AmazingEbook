@@ -21,6 +21,17 @@ Route::get('/', function () {
     return view('index');
 })->name('/');
 
+Route::get('/home2', function () {
+    return view('home');
+})->name('home2');
+
+Route::get('/ebook-detail', function () {
+    return view('ebook-detail');
+})->name('ebook-detail');
+
+Route::get('/cart', function () {
+    return view('cart');
+})->name('cart');
 
 Auth::routes();
 
