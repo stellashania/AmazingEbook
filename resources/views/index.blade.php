@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <div class="card mb-3" style="background-color: #ecddd0">
+        <div class="card mb-3 border-light" style="background-color: #ecddd0">
             <div class="card-body text-center">
                 <h5 class="card-title">Welcome to Amazing E-Book!</h5>
                 <p class="card-text">Find and Rent Your E-Book Here</p>
