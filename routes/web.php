@@ -33,6 +33,10 @@ Route::get('/cart', function () {
     return view('cart');
 })->name('cart');
 
+Route::get('/success', function () {
+    return view('success');
+})->name('success');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
