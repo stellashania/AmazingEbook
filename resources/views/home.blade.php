@@ -3,7 +3,12 @@
 @section('content')
     <div class="container d-flex justify-content-center" style="margin-top: 2rem; margin-bottom: 2rem">
         <div class="col-md-10 text-center">
-            <table class="table table-striped table-warning">
+
+            <div class="text-start">
+                <div class="h2 pb-2">Home</div>
+            </div>
+
+            <table class="table table-striped table-hover table-warning">
                 <thead>
                     <tr>
                         <th>Author</th>

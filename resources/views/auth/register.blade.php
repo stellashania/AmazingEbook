@@ -9,7 +9,7 @@
                     </div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('register') }}">
+                        <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                             @csrf
 
                             <div class="row mb-3">
@@ -94,7 +94,10 @@
                                     <div class="form-check form-check-inline">
                                         <input id="gender1" type="radio"
                                             class="form-check-input  radio-inline @error('gender') is-invalid @enderror"
-                                            name="gender" value="{{ old('gender') }}" required autocomplete="gender">
+                                            name="gender" value="
+                                                            {{-- {{ old('gender') }} --}}
+                                                            1
+                                                            " required autocomplete="gender">
                                         <label class="form-check-label" for="gender1">
                                             Male
                                         </label>
@@ -109,7 +112,10 @@
                                     <div class="form-check form-check-inline">
                                         <input id="gender2" type="radio"
                                             class="form-check-input radio-inline @error('gender') is-invalid @enderror"
-                                            name="gender" value="{{ old('gender') }}" required autocomplete="gender">
+                                            name="gender" value="
+                                                            {{-- {{ old('gender') }} --}}
+                                                            2
+                                                            " required autocomplete="gender">
                                         <label class="form-check-label" for="gender2">
                                             Female
                                         </label>

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -50,9 +51,14 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+            'role' => ['required', 'int'],
+            'gender' => ['required', 'int'],
+            'first_name' => ['required', 'string', 'max:25'],
+            'middle_name' => ['required', 'string', 'max:25'],
+            'last_name' => ['required', 'string', 'max:25'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'regex:/[0-9]/', 'min:8', 'confirmed'],
+            'picture' => ['required', 'image'],
         ]);
     }
 
@@ -64,10 +70,21 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $picture_name = time() . "-" . $data['first_name'] . "." . $data['picture']->getClientOriginalExtension();
+        $data['picture']->move('storage/display_picture', $picture_name);
+
         return User::create([
-            'name' => $data['name'],
+            'role_id' => $data['role'],
+            'gender_id' => $data['gender'],
+            'first_name' => $data['first_name'],
+            'middle_name' => $data['middle_name'],
+            'last_name' => $data['last_name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'display_picture_link' => $picture_name,
+            'delete_flag' => 0,
+            // 'modified_at' => time(),
+            'modified_by' => $data['first_name'],
         ]);
     }
 }

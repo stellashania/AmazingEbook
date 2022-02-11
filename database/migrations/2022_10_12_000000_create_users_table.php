@@ -27,11 +27,11 @@ return new class extends Migration
             $table->string('last_name', 25);
 
             $table->string('email', 50)->unique();
-            $table->string('password', 50);
+            $table->string('password');
             $table->string('display_picture_link');
             $table->integer('delete_flag');
 
-            $table->date('modified_at');
+            // $table->date('modified_at');
             $table->string('modified_by');
 
             $table->rememberToken();

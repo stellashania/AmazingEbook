@@ -26,7 +26,7 @@ class UserSeeder extends Seeder
             'password' => '12345678',
             'display_picture_link' => '',
             'delete_flag' => 0,
-            'modified_at' => '2022-02-13',
+            // 'modified_at' => '2022-02-13',
             'modified_by' => 'John'
         ]);
 
@@ -41,7 +41,7 @@ class UserSeeder extends Seeder
             'password' => '12345678',
             'display_picture_link' => '',
             'delete_flag' => 0,
-            'modified_at' => '2022-02-13',
+            // 'modified_at' => '2022-02-13',
             'modified_by' => 'Jane'
         ]);
     }

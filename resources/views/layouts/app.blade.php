@@ -95,9 +95,9 @@
 
         {{-- NAVBAR --}}
         @if (isset(Auth::user()->id))
-            @if (Auth::user()->role == 'User')
+            @if (Auth::user()->role_id == '2')
                 @include('layouts.navbar-user')
-            @elseif(Auth::user()->role == 'Admin')
+            @elseif(Auth::user()->role_id == '1')
                 @include('layouts.navbar-admin')
             @endif
         @endif
@@ -107,6 +107,7 @@
             @yield('content')
         </main>
 
+        {{-- FOOTER --}}
         @include('layouts.footer')
 
     </div>
