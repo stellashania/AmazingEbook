@@ -16,22 +16,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Veronica Roth</td>
-                        <td>Divergent</td>
-                    </tr>
-                    <tr>
-                        <td>J.K. Rowling</td>
-                        <td>Harry Potter</td>
-                    </tr>
-                    <tr>
-                        <td>James Dashner</td>
-                        <td>Maze Runner</td>
-                    </tr>
-                    <tr>
-                        <td>The Hunger Games</td>
-                        <td>Suzanne Collins</td>
-                    </tr>
+                    @foreach ($ebooks as $item)
+                        <tr onclick="window.location='/ebook-detail/{{ $item->id }}'" style="cursor: pointer">
+                            <td>{{ $item->author }}</td>
+                            <td>{{ $item->title }}</td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

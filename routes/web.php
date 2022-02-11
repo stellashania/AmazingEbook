@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EbookController;
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,7 +29,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/cart', [PageController::class, 'cart'])->name('cart');
 Route::get('/profile', [PageController::class, 'profile'])->name('profile');
 Route::get('/saved', [PageController::class, 'saved'])->name('saved');
-Route::get('/ebook-detail', [PageController::class, 'ebook_detail'])->name('ebook-detail');
+
+// EBOOK DETAIL ===================================================================================================
+Route::get('/ebook-detail/{id}', [EbookController::class, 'getEbookDetail'])->name('ebook-detail');
+Route::get('/rent/{id}', [EbookController::class, 'rent'])->name('rent');
+
 Route::get('/success', [PageController::class, 'success'])->name('success');
 
 Route::get('/account-maintenance', [PageController::class, 'account_maintenance'])->name('account-maintenance');

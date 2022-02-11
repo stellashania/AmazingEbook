@@ -21,10 +21,10 @@ class PageController extends Controller
         return view('index');
     }
 
-    public function ebook_detail()
-    {
-        return view('ebook-detail');
-    }
+    // public function ebook_detail()
+    // {
+    //     return view('ebook-detail');
+    // }
 
     public function success()
     {

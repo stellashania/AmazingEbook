@@ -10,7 +10,7 @@
                         Title
                     </div>
                     <div class="col-9">
-                        Harry Potter
+                        {{ $ebook->title }}
                     </div>
                 </div>
 
@@ -19,7 +19,7 @@
                         Author
                     </div>
                     <div class="col-9">
-                        J.K. Rowling
+                        {{ $ebook->author }}
                     </div>
                 </div>
 
@@ -28,13 +28,7 @@
                         Description
                     </div>
                     <div class="col-9">
-                        Harry Potter and the Philosophers Stone is a fantasy novel written by British author J. K. Rowling.
-                        The first novel in the Harry Potter series and Rowlings debut novel, it follows Harry Potter, a
-                        young wizard who discovers his magical heritage on his eleventh birthday, when he receives a letter
-                        of acceptance to Hogwarts School of Witchcraft and Wizardry. Harry makes close friends and a few
-                        enemies during his first year at the school, and with the help of his friends, he faces an attempted
-                        comeback by the dark wizard Lord Voldemort, who killed Harrys parents, but failed to kill Harry when
-                        he was just 15 months old.
+                        {{ $ebook->description }}
                     </div>
                 </div>
 
@@ -43,10 +37,15 @@
                     card's content.</p> --}}
 
                 <div class="col-md-6 offset-md-5">
-                    <button type="submit" class="btn btn-warning text-dark">
+                    {{-- <button type="submit" class="btn btn-warning text-dark">
                         Rent
-                    </button>
+                    </button> --}}
+                    <form action="/rent/{{ $ebook->id }}" method="POST">
+                        @csrf
+                        <input type="submit" value="Rent" class="btn btn-warning text-dark">
+                    </form>
                 </div>
+
             </div>
         </div>
     </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ebook;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $allEbooks = Ebook::all();
+
+        $data = [
+            'ebooks' => $allEbooks
+        ];
+
+        return view('home', $data);
     }
 }
