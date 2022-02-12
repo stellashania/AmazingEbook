@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EbookController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,20 +20,22 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-// Route::get('/', function () {
-//     return view('index');
-// })->name('/');
-
+// HOME AND INDEX ================================================================================================
 Route::get('/', [PageController::class, 'index'])->name('/');
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/cart', [PageController::class, 'cart'])->name('cart');
+
+// ORDER ==========================================================================================================
+Route::get('/cart', [OrderController::class, 'display_all'])->name('cart');
+Route::post('/delete-order/{order_id}', [OrderController::class, 'delete_order'])->name('delete-order');
+Route::post('/submit-order', [OrderController::class, 'submit_order'])->name('submit-order');
+
+// PROFILE ========================================================================================================
 Route::get('/profile', [PageController::class, 'profile'])->name('profile');
 Route::get('/saved', [PageController::class, 'saved'])->name('saved');
 
 // EBOOK DETAIL ===================================================================================================
 Route::get('/ebook-detail/{id}', [EbookController::class, 'getEbookDetail'])->name('ebook-detail');
-Route::get('/rent/{id}', [EbookController::class, 'rent'])->name('rent');
+Route::post('/rent/{id}', [OrderController::class, 'rent'])->name('rent');
 
 Route::get('/success', [PageController::class, 'success'])->name('success');
 

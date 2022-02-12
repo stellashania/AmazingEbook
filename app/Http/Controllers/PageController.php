@@ -6,10 +6,10 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
-    public function cart()
-    {
-        return view('cart');
-    }
+    // public function cart()
+    // {
+    //     return view('cart');
+    // }
 
     public function profile()
     {

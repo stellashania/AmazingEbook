@@ -16,26 +16,22 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="col-md-9">Veronica Roth</td>
-                        <td class="col-md-3"><button type="button"
-                                class="btn btn-danger btn-rounded rounded-pill btn-sm m-0 px-3">X</button></td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-9">Veronica Roth</td>
-                        <td class="col-md-3"><button type="button"
-                                class="btn btn-danger btn-rounded rounded-pill btn-sm m-0 px-3">X</button></td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-9">Veronica Roth</td>
-                        <td class="col-md-3"><button type="button"
-                                class="btn btn-danger btn-rounded rounded-pill btn-sm m-0 px-3">X</button></td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-9">Veronica Roth</td>
-                        <td class="col-md-3"><button type="button"
-                                class="btn btn-danger btn-rounded rounded-pill btn-sm m-0 px-3">X</button></td>
-                    </tr>
+                    @forelse ($orders as $item)
+                        <tr>
+                            <td class="col-md-9">{{ $item->ebooks->title }}</td>
+                            <td class="col-md-3">
+                                <form action="/delete-order/{{ $item->id }}" method="POST">
+                                    @csrf
+                                    <input type="submit" value="X"
+                                        class="btn btn-danger btn-rounded rounded-pill btn-sm m-0 px-3">
+                                </form>
+                            </td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="2">No E-Book has been ordered...</td>
+                        </tr>
+                    @endforelse
                 </tbody>
             </table>
         </div>
@@ -43,9 +39,14 @@
 
     <div class="container">
         <div class="col-md-6 offset-md-10">
-            <button type="submit" class="btn btn-warning text-dark">
-                Submit
-            </button>
+            <form action="/submit-order" method="POST">
+                @csrf
+                @if ($orders->isEmpty())
+                    <input type="submit" value="Submit" class="btn btn-warning text-dark" disabled>
+                @else
+                    <input type="submit" value="Submit" class="btn btn-warning text-dark">
+                @endif
+            </form>
         </div>
     </div>
 @endsection
