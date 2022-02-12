@@ -58,6 +58,6 @@ class OrderController extends Controller
         $user_id = Auth::user()->id;
         Order::where('user_id', $user_id)->delete();
 
-        return redirect()->back();
+        return redirect('success');
     }
 }

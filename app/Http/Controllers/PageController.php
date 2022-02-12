@@ -11,10 +11,10 @@ class PageController extends Controller
     //     return view('cart');
     // }
 
-    public function profile()
-    {
-        return view('profile');
-    }
+    // public function profile()
+    // {
+    //     return view('profile');
+    // }
 
     public function index()
     {
@@ -36,15 +36,15 @@ class PageController extends Controller
         return view('saved');
     }
 
-    public function account_maintenance()
-    {
-        return view('account-maintenance');
-    }
+    // public function account_maintenance()
+    // {
+    //     return view('account-maintenance');
+    // }
 
-    public function update_role()
-    {
-        return view('update-role');
-    }
+    // public function update_role()
+    // {
+    //     return view('update-role');
+    // }
 
     public function logout_success()
     {

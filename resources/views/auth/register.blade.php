@@ -40,7 +40,7 @@
                                 <div class="col-md-6">
                                     <input id="middle_name" type="text"
                                         class="form-control @error('middle_name') is-invalid @enderror" name="middle_name"
-                                        value="{{ old('middle_name') }}" required autocomplete="middle_name" autofocus>
+                                        value="{{ old('middle_name') }}" autocomplete="middle_name" autofocus>
 
                                     @error('middle_name')
                                         <span class="invalid-feedback" role="alert">
@@ -95,9 +95,9 @@
                                         <input id="gender1" type="radio"
                                             class="form-check-input  radio-inline @error('gender') is-invalid @enderror"
                                             name="gender" value="
-                                                            {{-- {{ old('gender') }} --}}
-                                                            1
-                                                            " required autocomplete="gender">
+                                                                {{-- {{ old('gender') }} --}}
+                                                                1
+                                                                " required autocomplete="gender">
                                         <label class="form-check-label" for="gender1">
                                             Male
                                         </label>
@@ -113,9 +113,9 @@
                                         <input id="gender2" type="radio"
                                             class="form-check-input radio-inline @error('gender') is-invalid @enderror"
                                             name="gender" value="
-                                                            {{-- {{ old('gender') }} --}}
-                                                            2
-                                                            " required autocomplete="gender">
+                                                                {{-- {{ old('gender') }} --}}
+                                                                2
+                                                                " required autocomplete="gender">
                                         <label class="form-check-label" for="gender2">
                                             Female
                                         </label>

@@ -16,42 +16,42 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="col-md-9">Veronica Roth - User</td>
-                        <td class="col-md-3">
-                            <button type="button" class="btn btn-warning btn-rounded rounded-pill btn-sm m-0 px-3">Update
-                                Role</button>
-                            <button type="button"
-                                class="btn btn-danger btn-rounded rounded-pill btn-sm m-0 px-3">Delete</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-9">Veronica Roth - User</td>
-                        <td class="col-md-3">
-                            <button type="button" class="btn btn-warning btn-rounded rounded-pill btn-sm m-0 px-3">Update
-                                Role</button>
-                            <button type="button"
-                                class="btn btn-danger btn-rounded rounded-pill btn-sm m-0 px-3">Delete</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-9">Veronica Roth - User</td>
-                        <td class="col-md-3">
-                            <button type="button" class="btn btn-warning btn-rounded rounded-pill btn-sm m-0 px-3">Update
-                                Role</button>
-                            <button type="button"
-                                class="btn btn-danger btn-rounded rounded-pill btn-sm m-0 px-3">Delete</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-9">Veronica Roth - User</td>
-                        <td class="col-md-3">
-                            <button type="button" class="btn btn-warning btn-rounded rounded-pill btn-sm m-0 px-3">Update
-                                Role</button>
-                            <button type="button"
-                                class="btn btn-danger btn-rounded rounded-pill btn-sm m-0 px-3">Delete</button>
-                        </td>
-                    </tr>
+                    @forelse ($users as $item)
+                        <tr>
+                            <td class="col-md-9">
+                                {{ $item->first_name }} {{ $item->middle_name }} {{ $item->last_name }} -
+                                {{ $item->roles->description }}
+                            </td>
+                            <td class="col-md-3">
+                                @if ($item->id == Auth::user()->id)
+                                    <div class="d-flex justify-content-center">
+                                        <input type="submit" value="Update Role"
+                                            class="btn btn-warning btn-rounded rounded-pill btn-sm px-2" disabled>
+
+                                        <input type="submit" value="Delete"
+                                            class="btn btn-danger btn-rounded rounded-pill btn-sm px-3"
+                                            style="margin-left: 1rem" disabled>
+                                    </div>
+                                @else
+                                    <div class="d-flex justify-content-center">
+                                        <a href="/update-user/{{ $item->id }}"
+                                            class="btn btn-warning btn-rounded rounded-pill btn-sm px-2">Update Role</a>
+
+                                        <form action="/delete-user/{{ $item->id }}" method="POST">
+                                            @csrf
+                                            <input type="submit" value="Delete"
+                                                class="btn btn-danger btn-rounded rounded-pill btn-sm px-3"
+                                                style="margin-left: 1rem">
+                                        </form>
+                                    </div>
+                                @endif
+                            </td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="2">No Users have been Registered</td>
+                        </tr>
+                    @endforelse
                 </tbody>
             </table>
         </div>

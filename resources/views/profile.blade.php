@@ -9,12 +9,12 @@
 
             <div class="row">
                 <div class="col-md-3">
-                    <img src="../storage/display_picture/1644565321-stella.jpg" style="object-fit:cover" alt="" width="100%"
-                        height="auto">
+                    <img src="../storage/display_picture/{{ $user->display_picture_link }}" style="object-fit:cover"
+                        alt="" width="100%" height="auto">
                 </div>
 
                 <div class="col-md-9 text-start">
-                    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
+                    <form method="POST" action="/update-profile" enctype="multipart/form-data">
                         @csrf
 
                         <div class="row mb-3">
@@ -26,7 +26,8 @@
                             <div class="col-md-6">
                                 <input id="first_name" type="text"
                                     class="form-control @error('first_name') is-invalid @enderror" name="first_name"
-                                    value="{{ old('first_name') }}" required autocomplete="first_name" autofocus>
+                                    value="{{ old('first_name') ?? $user->first_name }}" required
+                                    autocomplete="first_name" autofocus>
 
                                 @error('first_name')
                                     <span class="invalid-feedback" role="alert">
@@ -45,7 +46,8 @@
                             <div class="col-md-6">
                                 <input id="middle_name" type="text"
                                     class="form-control @error('middle_name') is-invalid @enderror" name="middle_name"
-                                    value="{{ old('middle_name') }}" required autocomplete="middle_name" autofocus>
+                                    value="{{ old('middle_name') ?? $user->middle_name }}" autocomplete="middle_name"
+                                    autofocus>
 
                                 @error('middle_name')
                                     <span class="invalid-feedback" role="alert">
@@ -64,7 +66,8 @@
                             <div class="col-md-6">
                                 <input id="last_name" type="text"
                                     class="form-control @error('last_name') is-invalid @enderror" name="last_name"
-                                    value="{{ old('last_name') }}" required autocomplete="last_name" autofocus>
+                                    value="{{ old('last_name') ?? $user->last_name }}" required autocomplete="last_name"
+                                    autofocus>
 
                                 @error('last_name')
                                     <span class="invalid-feedback" role="alert">
@@ -80,7 +83,7 @@
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                                    name="email" value="{{ old('email') }}" required autocomplete="email">
+                                    name="email" value="{{ old('email') ?? $user->email }}" required autocomplete="email">
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -99,12 +102,8 @@
                                 <div class="form-check form-check-inline">
                                     <input id="gender1" type="radio"
                                         class="form-check-input  radio-inline @error('gender') is-invalid @enderror"
-                                        name="gender"
-                                        value="
-                                                                                                                                            {{-- {{ old('gender') }} --}}
-                                                                                                                                            1
-                                                                                                                                            "
-                                        required autocomplete="gender">
+                                        name="gender" value="1" required autocomplete="gender"
+                                        {{ $user->gender_id == 1 ? 'checked' : '' }}>
                                     <label class="form-check-label" for="gender1">
                                         Male
                                     </label>
@@ -119,12 +118,8 @@
                                 <div class="form-check form-check-inline">
                                     <input id="gender2" type="radio"
                                         class="form-check-input radio-inline @error('gender') is-invalid @enderror"
-                                        name="gender"
-                                        value="
-                                                                                                                                            {{-- {{ old('gender') }} --}}
-                                                                                                                                            2
-                                                                                                                                            "
-                                        required autocomplete="gender">
+                                        name="gender" value="2" required autocomplete="gender"
+                                        {{ $user->gender_id == 2 ? 'checked' : '' }}>
                                     <label class="form-check-label" for="gender2">
                                         Female
                                     </label>
@@ -147,20 +142,27 @@
                             <div class="col-md-6">
                                 <select name="role" id="role"
                                     class="form-select form-control @error('role') is-invalid @enderror">
-                                    <option selected value="">Choose Role</option>
-                                    <option value="1">Admin</option>
-                                    <option value="2">User</option>
+                                    {{-- @foreach ($roles as $item)
+                                        <option value="{{ $item->id }}"
+                                            {{ $item->id == $user->role_id ? 'selected' : '' }}>
+                                            {{ $item->description }}
+                                        </option>
+                                    @endforeach --}}
+
+                                    <option value="{{ $user->role_id }}" selected disabled style="zoom:1.1">
+                                        {{ $user->roles->description }}
+                                    </option>
                                 </select>
 
                                 @error('role')
-                                    <span class="invalid-feedback" role="alert">
+                                    <span class=" invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
                         </div>
 
-                        <div class="row mb-3">
+                        {{-- <div class="row mb-3">
                             <label for="password"
                                 class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
 
@@ -185,7 +187,7 @@
                                 <input id="password-confirm" type="password" class="form-control"
                                     name="password_confirmation" required autocomplete="new-password">
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="row mb-3">
                             <label for="picture" class="col-md-4 col-form-label text-md-end">
@@ -206,10 +208,7 @@
 
                         <div class="row pt-4 mb-0">
                             <div class="col-md-6 offset-md-3">
-                                <button type="submit" class="btn text-light" style="background-color: #35455d">
-                                    {{-- {{ __('Register') }} --}}
-                                    Save
-                                </button>
+                                <input type="submit" value="Save" class="btn text-light" style="background-color: #35455d">
                             </div>
                         </div>
                     </form>

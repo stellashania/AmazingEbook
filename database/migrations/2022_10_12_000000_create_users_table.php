@@ -23,7 +23,7 @@ return new class extends Migration
             $table->foreign('gender_id')->references('id')->on('genders')->onUpdate('cascade')->onDelete('cascade');
 
             $table->string('first_name', 25);
-            $table->string('middle_name', 25);
+            $table->string('middle_name', 25)->nullable();
             $table->string('last_name', 25);
 
             $table->string('email', 50)->unique();
