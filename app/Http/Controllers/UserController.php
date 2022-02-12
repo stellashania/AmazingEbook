@@ -6,6 +6,7 @@ use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
@@ -76,13 +77,13 @@ class UserController extends Controller
         $user_id = Auth::user()->id;
 
         $rules = Validator::make($request->all(), [
-            'role' => ['required', 'int'],
+            // 'role' => ['required', 'int'],
             'gender' => ['required', 'int'],
             'first_name' => ['required', 'string', 'max:25'],
             'middle_name' => ['nullable', 'string', 'max:25'],
             'last_name' => ['required', 'string', 'max:25'],
             'email' => ['required', 'string', 'email', 'max:50', 'unique:users,email,' . $user_id, 'regex:/[@.]/'],
-            // 'password' => ['required', 'string', 'regex:/[0-9]/', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'regex:/[0-9]/', 'min:8'],
             'picture' => ['required', 'image'],
         ]);
         $rules->validate();
@@ -91,9 +92,10 @@ class UserController extends Controller
         $user->first_name = $request->first_name;
         $user->middle_name = $request->middle_name;
         $user->last_name = $request->last_name;
-        $user->role_id = $request->role;
+        // $user->role_id = $request->role;
         $user->gender_id = $request->gender;
         $user->email = $request->email;
+        $user->password = Hash::make($request->password);
 
         $file = $request->file("picture");
         if ($file != null) {
