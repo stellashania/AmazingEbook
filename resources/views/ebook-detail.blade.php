@@ -34,7 +34,7 @@
                 </div>
 
                 <div class="col-md-6 offset-md-5">
-                    <form action="/rent/{{ $ebook->id }}" method="POST">
+                    <form action="/{{ app()->getLocale() }}/rent/{{ $ebook->id }}" method="POST">
                         @csrf
                         <input type="submit" value="{{ __('message.rent') }}" class="btn btn-warning text-dark">
                     </form>

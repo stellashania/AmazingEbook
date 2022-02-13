@@ -14,7 +14,7 @@
                 </div>
 
                 <div class="col-md-9 text-start">
-                    <form method="POST" action="/update-profile" enctype="multipart/form-data">
+                    <form method="POST" action="/{{ app()->getLocale() }}/update-profile" enctype="multipart/form-data">
                         @csrf
 
                         <div class="row mb-3">
@@ -63,7 +63,8 @@
                             <div class="col-md-6">
                                 <input id="last_name" type="text"
                                     class="form-control @error('last_name') is-invalid @enderror" name="last_name"
-                                    value="{{ old('last_name') ?? $user->last_name }}" autocomplete="last_name" autofocus>
+                                    value="{{ old('last_name') ?? $user->last_name }}" autocomplete="last_name"
+                                    autofocus>
 
                                 @error('last_name')
                                     <span class="invalid-feedback" role="alert">

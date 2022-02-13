@@ -34,10 +34,11 @@
                                     </div>
                                 @else
                                     <div class="d-flex justify-content-center">
-                                        <a href="/update-user/{{ $item->id }}"
+                                        <a href="/{{ app()->getLocale() }}/update-user/{{ $item->id }}"
                                             class="btn btn-warning btn-rounded rounded-pill btn-sm px-2">{{ __('message.update_role') }}</a>
 
-                                        <form action="/delete-user/{{ $item->id }}" method="POST">
+                                        <form action="/{{ app()->getLocale() }}/delete-user/{{ $item->id }}"
+                                            method="POST">
                                             @csrf
                                             <input type="submit" value="{{ __('message.delete') }}"
                                                 class="btn btn-danger btn-rounded rounded-pill btn-sm px-3"

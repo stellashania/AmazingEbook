@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
@@ -12,8 +13,9 @@ use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
-    public function display_all()
+    public function display_all($locale = 'en')
     {
+        App::setLocale($locale);
         $allUsers = User::all();
 
         $data = [
@@ -23,8 +25,9 @@ class UserController extends Controller
         return view('account-maintenance', $data);
     }
 
-    public function delete_user(Request $request)
+    public function delete_user(Request $request, $locale = 'en')
     {
+        App::setLocale($locale);
         $user_id = $request->id;
         $user = User::where('id', $user_id)->first();
         Storage::delete("public/display_picture/" . $user->display_picture_link);
@@ -33,8 +36,9 @@ class UserController extends Controller
         return redirect()->back();
     }
 
-    public function update_user(Request $request)
+    public function update_user(Request $request, $locale = 'en')
     {
+        App::setLocale($locale);
         $user_id = $request->id;
         $user = User::where('id', $user_id)->first();
         $roles = Role::all();
@@ -47,19 +51,22 @@ class UserController extends Controller
         return view('update-role', $data);
     }
 
-    public function update_role(Request $request)
+    public function update_role(Request $request, $locale = 'en')
     {
+        App::setLocale($locale);
+
         $user_id = $request->id;
 
         $user = User::find($user_id);
         $user->role_id = $request->role;
         $user->save();
 
-        return redirect('account-maintenance');
+        return redirect($locale . '/account-maintenance');
     }
 
-    public function display_profile()
+    public function display_profile($locale = 'en')
     {
+        App::setLocale($locale);
         $user_id = Auth::user()->id;
         $user = User::find($user_id);
         $roles = Role::all();
@@ -72,8 +79,9 @@ class UserController extends Controller
         return view('profile', $data);
     }
 
-    public function update_profile(Request $request)
+    public function update_profile(Request $request, $locale = 'en')
     {
+        App::setLocale($locale);
         $user_id = Auth::user()->id;
 
         $rules = Validator::make($request->all(), [
@@ -107,6 +115,6 @@ class UserController extends Controller
 
         $user->save();
 
-        return redirect('saved');
+        return redirect($locale . '/saved');
     }
 }

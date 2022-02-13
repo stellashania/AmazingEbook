@@ -20,7 +20,7 @@
                         <tr>
                             <td class="col-md-9">{{ $item->ebooks->title }}</td>
                             <td class="col-md-3">
-                                <form action="/delete-order/{{ $item->id }}" method="POST">
+                                <form action="/{{ app()->getLocale() }}/delete-order/{{ $item->id }}" method="POST">
                                     @csrf
                                     <input type="submit" value="X"
                                         class="btn btn-danger btn-rounded rounded-pill btn-sm m-0 px-3">
@@ -39,7 +39,7 @@
 
     <div class="container">
         <div class="col-md-6 offset-md-10">
-            <form action="/submit-order" method="POST">
+            <form action="/{{ app()->getLocale() }}/submit-order" method="POST">
                 @csrf
                 @if ($orders->isEmpty())
                     <input type="submit" value="{{ __('message.submit') }}" class="btn btn-warning text-dark" disabled>

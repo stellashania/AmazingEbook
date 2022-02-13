@@ -15,7 +15,8 @@
                 <h5 class="card-title pb-4 text-center">{{ $user->first_name }} {{ $user->middle_name }}
                     {{ $user->last_name }}</h5>
 
-                <form method="POST" action="/update-role/{{ $user->id }}" enctype="multipart/form-data">
+                <form method="POST" action="/{{ app()->getLocale() }}/update-role/{{ $user->id }}"
+                    enctype="multipart/form-data">
                     @csrf
 
                     <div class="row mb-2">

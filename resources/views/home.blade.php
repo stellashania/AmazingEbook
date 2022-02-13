@@ -17,7 +17,13 @@
                 </thead>
                 <tbody>
                     @foreach ($ebooks as $item)
-                        <tr onclick="window.location='/ebook-detail/{{ $item->id }}'" style="cursor: pointer">
+                        {{-- <tr onclick="window.location='/ebook-detail/{{ $item->id }}'" style="cursor: pointer">
+                            <td>{{ $item->author }}</td>
+                            <td>{{ $item->title }}</td>
+                        </tr> --}}
+
+                        <tr onclick="window.location='/{{ app()->getLocale() }}/ebook-detail/{{ $item->id }}'"
+                            style="cursor: pointer">
                             <td>{{ $item->author }}</td>
                             <td>{{ $item->title }}</td>
                         </tr>

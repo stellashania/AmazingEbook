@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 class PageController extends Controller
 {
@@ -12,18 +13,21 @@ class PageController extends Controller
         return view('index');
     }
 
-    public function success()
+    public function success($locale = 'en')
     {
+        App::setLocale($locale);
         return view('success');
     }
 
-    public function saved()
+    public function saved($locale = 'en')
     {
+        App::setLocale($locale);
         return view('saved');
     }
 
-    public function logout_success()
+    public function logout_success($locale = 'en')
     {
+        App::setLocale($locale);
         return view('logout-success');
     }
 }

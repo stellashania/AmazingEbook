@@ -19,13 +19,13 @@
             <ul class="navbar-nav ms-auto">
                 <!-- Authentication Links -->
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('register') }}">
+                    <a class="nav-link" href="{{ route('register', app()->getLocale()) }}">
                         {{ __('message.register') }}
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('login') }}">
+                    <a class="nav-link" href="{{ route('login', app()->getLocale()) }}">
                         {{ __('message.login') }}
                     </a>
                 </li>
