@@ -5,14 +5,14 @@
         <div class="col-md-10 text-center">
 
             <div class="text-start">
-                <div class="h2 pb-2">Cart</div>
+                <div class="h2 pb-2">{{ __('message.cart') }}</div>
             </div>
 
             <table class="table table-striped table-warning">
                 <thead>
                     <tr>
-                        <th class="col-md-9">Author</th>
-                        <th class="col-md-3">Action</th>
+                        <th class="col-md-9">{{ __('message.author') }}</th>
+                        <th class="col-md-3">{{ __('message.action') }}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -29,7 +29,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="2">No E-Book has been ordered...</td>
+                            <td colspan="2">{{ __('message.no_ebook_ordered') }}</td>
                         </tr>
                     @endforelse
                 </tbody>
@@ -42,9 +42,9 @@
             <form action="/submit-order" method="POST">
                 @csrf
                 @if ($orders->isEmpty())
-                    <input type="submit" value="Submit" class="btn btn-warning text-dark" disabled>
+                    <input type="submit" value="{{ __('message.submit') }}" class="btn btn-warning text-dark" disabled>
                 @else
-                    <input type="submit" value="Submit" class="btn btn-warning text-dark">
+                    <input type="submit" value="{{ __('message.submit') }}" class="btn btn-warning text-dark">
                 @endif
             </form>
         </div>

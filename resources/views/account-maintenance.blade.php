@@ -5,14 +5,14 @@
         <div class="col-md-10 text-center">
 
             <div class="text-start">
-                <div class="h2 pb-2">Account Maintenance</div>
+                <div class="h2 pb-2">{{ __('message.account_maintenance') }}</div>
             </div>
 
             <table class="table table-striped table-warning">
                 <thead>
                     <tr>
-                        <th class="col-md-9">Account</th>
-                        <th class="col-md-3">Action</th>
+                        <th class="col-md-9">{{ __('message.account') }}</th>
+                        <th class="col-md-3">{{ __('message.action') }}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -25,21 +25,21 @@
                             <td class="col-md-3">
                                 @if ($item->id == Auth::user()->id)
                                     <div class="d-flex justify-content-center">
-                                        <input type="submit" value="Update Role"
+                                        <input type="submit" value="{{ __('message.update_role') }}"
                                             class="btn btn-warning btn-rounded rounded-pill btn-sm px-2" disabled>
 
-                                        <input type="submit" value="Delete"
+                                        <input type="submit" value="{{ __('message.delete') }}"
                                             class="btn btn-danger btn-rounded rounded-pill btn-sm px-3"
                                             style="margin-left: 1rem" disabled>
                                     </div>
                                 @else
                                     <div class="d-flex justify-content-center">
                                         <a href="/update-user/{{ $item->id }}"
-                                            class="btn btn-warning btn-rounded rounded-pill btn-sm px-2">Update Role</a>
+                                            class="btn btn-warning btn-rounded rounded-pill btn-sm px-2">{{ __('message.update_role') }}</a>
 
                                         <form action="/delete-user/{{ $item->id }}" method="POST">
                                             @csrf
-                                            <input type="submit" value="Delete"
+                                            <input type="submit" value="{{ __('message.delete') }}"
                                                 class="btn btn-danger btn-rounded rounded-pill btn-sm px-3"
                                                 style="margin-left: 1rem">
                                         </form>
@@ -49,7 +49,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="2">No Users have been Registered</td>
+                            <td colspan="2">{{ __('message.no_users_registered') }}</td>
                         </tr>
                     @endforelse
                 </tbody>

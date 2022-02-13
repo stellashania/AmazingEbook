@@ -5,14 +5,14 @@
         <div class="col-md-10 text-center">
 
             <div class="text-start">
-                <div class="h2 pb-2">Home</div>
+                <div class="h2 pb-2">{{ __('message.home') }}</div>
             </div>
 
             <table class="table table-striped table-hover table-warning">
                 <thead>
                     <tr>
-                        <th>Author</th>
-                        <th>Title</th>
+                        <th>{{ __('message.author') }}</th>
+                        <th>{{ __('message.title') }}</th>
                     </tr>
                 </thead>
                 <tbody>

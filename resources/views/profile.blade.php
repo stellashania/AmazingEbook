@@ -4,7 +4,7 @@
     <div class="container d-flex justify-content-center" style="margin-top: 2rem; margin-bottom: 2rem">
         <div class="col-md-10 text-center">
             <div class="text-start">
-                <div class="h2 pb-2">Profile</div>
+                <div class="h2 pb-2">{{ __('message.profile') }}</div>
             </div>
 
             <div class="row">
@@ -19,15 +19,14 @@
 
                         <div class="row mb-3">
                             <label for="first_name" class="col-md-4 col-form-label text-md-end">
-                                {{-- {{ __('Name') }} --}}
-                                First Name
+                                {{ __('message.first_name') }}
                             </label>
 
                             <div class="col-md-6">
                                 <input id="first_name" type="text"
                                     class="form-control @error('first_name') is-invalid @enderror" name="first_name"
-                                    value="{{ old('first_name') ?? $user->first_name }}" required
-                                    autocomplete="first_name" autofocus>
+                                    value="{{ old('first_name') ?? $user->first_name }}" autocomplete="first_name"
+                                    autofocus>
 
                                 @error('first_name')
                                     <span class="invalid-feedback" role="alert">
@@ -39,8 +38,7 @@
 
                         <div class="row mb-3">
                             <label for="middle_name" class="col-md-4 col-form-label text-md-end">
-                                {{-- {{ __('Name') }} --}}
-                                Middle Name
+                                {{ __('message.middle_name') }}
                             </label>
 
                             <div class="col-md-6">
@@ -59,15 +57,13 @@
 
                         <div class="row mb-3">
                             <label for="last_name" class="col-md-4 col-form-label text-md-end">
-                                {{-- {{ __('Name') }} --}}
-                                Last Name
+                                {{ __('message.last_name') }}
                             </label>
 
                             <div class="col-md-6">
                                 <input id="last_name" type="text"
                                     class="form-control @error('last_name') is-invalid @enderror" name="last_name"
-                                    value="{{ old('last_name') ?? $user->last_name }}" required autocomplete="last_name"
-                                    autofocus>
+                                    value="{{ old('last_name') ?? $user->last_name }}" autocomplete="last_name" autofocus>
 
                                 @error('last_name')
                                     <span class="invalid-feedback" role="alert">
@@ -79,11 +75,11 @@
 
                         <div class="row mb-3">
                             <label for="email"
-                                class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
+                                class="col-md-4 col-form-label text-md-end">{{ __('message.email_address') }}</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                                    name="email" value="{{ old('email') ?? $user->email }}" required autocomplete="email">
+                                    name="email" value="{{ old('email') ?? $user->email }}" autocomplete="email">
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -95,17 +91,17 @@
 
                         <div class="row mb-3">
                             <div class="col-md-4 col-form-label text-md-end">
-                                Gender
+                                {{ __('message.gender') }}
                             </div>
 
-                            <div class="col-md-3 col-form-label text-md">
+                            <div class="col-md-4 col-form-label text-md">
                                 <div class="form-check form-check-inline">
                                     <input id="gender1" type="radio"
                                         class="form-check-input  radio-inline @error('gender') is-invalid @enderror"
-                                        name="gender" value="1" required autocomplete="gender"
+                                        name="gender" value="1" autocomplete="gender"
                                         {{ $user->gender_id == 1 ? 'checked' : '' }}>
                                     <label class="form-check-label" for="gender1">
-                                        Male
+                                        {{ __('message.male') }}
                                     </label>
 
                                     @error('gender1')
@@ -118,10 +114,10 @@
                                 <div class="form-check form-check-inline">
                                     <input id="gender2" type="radio"
                                         class="form-check-input radio-inline @error('gender') is-invalid @enderror"
-                                        name="gender" value="2" required autocomplete="gender"
+                                        name="gender" value="2" autocomplete="gender"
                                         {{ $user->gender_id == 2 ? 'checked' : '' }}>
                                     <label class="form-check-label" for="gender2">
-                                        Female
+                                        {{ __('message.female') }}
                                     </label>
 
                                     @error('gender2')
@@ -135,8 +131,7 @@
 
                         <div class="row mb-3">
                             <label for="role" class="col-md-4 col-form-label text-md-end">
-                                {{-- {{ __('Name') }} --}}
-                                Role
+                                {{ __('message.role') }}
                             </label>
 
                             <div class="col-md-6">
@@ -154,14 +149,13 @@
 
                         <div class="row mb-3">
                             <label for="password" class="col-md-4 col-form-label text-md-end">
-                                {{-- {{ __('Password') }} --}}
-                                New Password
+                                {{ __('message.new_password') }}
                             </label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password"
                                     class="form-control @error('password') is-invalid @enderror" name="password"
-                                    placeholder="Enter your new password" {{-- autocomplete="new-password" --}} required>
+                                    placeholder="{{ __('message.enter_new_password') }}">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -173,13 +167,12 @@
 
                         <div class="row mb-3">
                             <label for="picture" class="col-md-4 col-form-label text-md-end">
-                                {{-- {{ __('Name') }} --}}
-                                Display Picture
+                                {{ __('message.display_picture') }}
                             </label>
 
                             <div class="col-md-4">
                                 <input type="file" id="picture" name="picture"
-                                    class="form-control-file @error('picture') is-invalid @enderror" required>
+                                    class="form-control-file @error('picture') is-invalid @enderror">
                                 @error('picture')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -190,7 +183,8 @@
 
                         <div class="row pt-4 mb-0">
                             <div class="col-md-6 offset-md-3">
-                                <input type="submit" value="Save" class="btn text-light" style="background-color: #35455d">
+                                <input type="submit" value="{{ __('message.save') }}" class="btn text-light"
+                                    style="background-color: #35455d">
                             </div>
                         </div>
                     </form>

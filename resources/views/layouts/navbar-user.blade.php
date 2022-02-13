@@ -11,15 +11,16 @@
         <div class="collapse navbar-collapse justify-content-center" id="navbarCenteredExample">
             <ul class="navbar-nav mb-2 mb-lg-0">
                 <li class="nav-item px-2">
-                    <a class="nav-link text-light" aria-current="page" href="{{ url('home') }}">Home</a>
+                    <a class="nav-link text-light" aria-current="page"
+                        href="{{ url('home') }}">{{ __('message.home') }}</a>
                 </li>
 
                 <li class="nav-item px-2">
-                    <a class="nav-link text-light" href="{{ url('cart') }}">Cart</a>
+                    <a class="nav-link text-light" href="{{ url('cart') }}">{{ __('message.cart') }}</a>
                 </li>
 
                 <li class="nav-item px-2">
-                    <a class="nav-link text-light" href="{{ url('profile') }}">Profile</a>
+                    <a class="nav-link text-light" href="{{ url('profile') }}">{{ __('message.profile') }}</a>
                 </li>
 
             </ul>

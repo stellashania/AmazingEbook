@@ -5,7 +5,8 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card border-light">
-                    <div class="card-header" style="background-color:#f1c5ae; font-size:1.2rem">{{ __('Login') }}</div>
+                    <div class="card-header" style="background-color:#f1c5ae; font-size:1.2rem">
+                        {{ __('message.login') }}</div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('login') }}">
@@ -13,11 +14,11 @@
 
                             <div class="row mb-3">
                                 <label for="email"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
+                                    class="col-md-4 col-form-label text-md-end">{{ __('message.email_address') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                                        name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                        name="email" value="{{ old('email') }}" autocomplete="email" autofocus>
 
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
@@ -29,12 +30,12 @@
 
                             <div class="row mb-3">
                                 <label for="password"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
+                                    class="col-md-4 col-form-label text-md-end">{{ __('message.password') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="password" type="password"
                                         class="form-control @error('password') is-invalid @enderror" name="password"
-                                        required autocomplete="current-password">
+                                        autocomplete="current-password">
 
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
@@ -47,13 +48,12 @@
                             <div class="row pt-4 mb-0">
                                 <div class="col-md-8 offset-md-5">
                                     <button type="submit" class="btn text-light" style="background-color: #35455d">
-                                        {{ __('Login') }}
+                                        {{ __('message.login') }}
                                     </button>
                                 </div>
 
                                 <a class="text-center pt-2" href="{{ url('register') }}">
-                                    {{-- {{ __('Forgot Your Password?') }} --}}
-                                    Don't have an account? Click here to sign up!
+                                    {{ __('message.dont_have_account') }}
                                 </a>
                             </div>
                         </form>

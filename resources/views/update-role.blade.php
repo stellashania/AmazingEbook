@@ -4,7 +4,7 @@
     <div class="container d-flex justify-content-center">
         <div class="col-md-8 text-center" style="padding-left:2rem">
             <div class="text-start">
-                <div class="h2 pt-2">Update Role</div>
+                <div class="h2 pt-2">{{ __('message.update_role') }}</div>
             </div>
         </div>
     </div>
@@ -21,7 +21,7 @@
                     <div class="row mb-2">
                         <label for="role" class="col-md-4 col-form-label text-md-end">
                             {{-- {{ __('Name') }} --}}
-                            Role
+                            {{ __('message.role') }}
                         </label>
 
                         <div class="col-md-5">
@@ -46,7 +46,8 @@
 
                     <div class="row pt-4 mb-0 text-center">
                         <div class="col-md-6 offset-md-3">
-                            <input type="submit" value="Save" class="btn text-light" style="background-color: #35455d">
+                            <input type="submit" value="{{ __('message.save') }}" class="btn text-light"
+                                style="background-color: #35455d">
                         </div>
                     </div>
                 </form>
