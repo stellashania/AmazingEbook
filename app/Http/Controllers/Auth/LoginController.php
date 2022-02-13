@@ -10,17 +10,6 @@ use Illuminate\Support\Facades\App;
 
 class LoginController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles authenticating users for the application and
-    | redirecting them to your home screen. The controller uses a trait
-    | to conveniently provide its functionality to your applications.
-    |
-    */
-
     use AuthenticatesUsers;
 
     /**
@@ -55,14 +44,6 @@ class LoginController extends Controller
         $request->session()->invalidate();
 
         $request->session()->regenerateToken();
-
-        // if ($response = $this->loggedOut($request)) {
-        //     return $response;
-        // }
-
-        // return $request->wantsJson()
-        //     ? new JsonResponse([], 204)
-        //     : redirect('/');
 
         return view('logout-success');
     }

@@ -13,21 +13,18 @@ class PageController extends Controller
         return view('index');
     }
 
-    public function success($locale = 'en')
+    public function success()
     {
-        App::setLocale($locale);
         return view('success');
     }
 
-    public function saved($locale = 'en')
+    public function saved()
     {
-        App::setLocale($locale);
         return view('saved');
     }
 
-    public function logout_success($locale = 'en')
+    public function logout_success()
     {
-        App::setLocale($locale);
         return view('logout-success');
     }
 }

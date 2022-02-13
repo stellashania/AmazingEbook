@@ -23,9 +23,8 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index($locale = 'en')
+    public function index()
     {
-        App::setLocale($locale);
         $allEbooks = Ebook::all();
 
         $data = [

@@ -19,8 +19,8 @@ class DatabaseSeeder extends Seeder
             RoleSeeder::class,
             GenderSeeder::class,
             EbookSeeder::class,
-            UserSeeder::class,
-            OrderSeeder::class,
+            // UserSeeder::class,
+            // OrderSeeder::class,
         ]);
     }
 }

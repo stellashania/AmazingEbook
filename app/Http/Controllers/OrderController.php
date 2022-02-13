@@ -10,9 +10,8 @@ use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
-    public function rent(Request $request, $locale = 'en')
+    public function rent(Request $request)
     {
-        App::setLocale($locale);
         $user_id = Auth::user()->id;
         $ebook_id = $request->id;
         $current_date = Carbon::now();
@@ -24,15 +23,13 @@ class OrderController extends Controller
             'order_date' => $current_date
         ]);
 
-        return redirect($locale . '/cart');
+        return redirect(app()->getLocale() . '/cart');
     }
 
-    public function display_all($locale = 'en')
+    public function display_all()
     {
-        App::setLocale($locale);
         $user_id = Auth::user()->id;
         $allOrders = Order::where('user_id', '=', $user_id)->get();
-        // dd($allOrders);
 
         $data = [
             'orders' => $allOrders
@@ -41,9 +38,8 @@ class OrderController extends Controller
         return view('cart', $data);
     }
 
-    public function delete_order(Request $request, $locale = 'en')
+    public function delete_order(Request $request)
     {
-        App::setLocale($locale);
         $order_id = $request->order_id;
         $order = Order::where('id', $order_id)->first();
         $order->delete();
@@ -51,12 +47,11 @@ class OrderController extends Controller
         return redirect()->back();
     }
 
-    public function submit_order($locale = 'en')
+    public function submit_order()
     {
-        App::setLocale($locale);
         $user_id = Auth::user()->id;
         Order::where('user_id', $user_id)->delete();
 
-        return redirect($locale . '/success');
+        return redirect(app()->getLocale() . '/success');
     }
 }
