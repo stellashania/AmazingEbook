@@ -14,6 +14,7 @@ The Amazing Ebook project was created for the final exam project of the Web Prog
 - Laravel
 - HTML5
 - CSS
+- JavaScript
 - PHP
 - Bootstrap
 - XAMPP (with MySQL database)
