@@ -36,8 +36,9 @@ The Amazing Ebook project was created for the final exam project of the Web Prog
 - Required apps to install: XAMPP, Composer, Node.js
 - Pull the project
 - Start Apache and MySQL in XAMPP
+- Run composer install to generate depedencies
 - Create an .env file and edit the values (DB Host, DB Port, etc.) based on your setup
-- Create a MySQL database with the same name as the ```DB_DATABASE``` value in the .env file of the project, which is "scananddine".
+- Create a MySQL database with the same name as the ```DB_DATABASE``` value in the .env file of the project, which is "scananddine"
 - Run ```composer update``` to update dependencies
 - Run ```php artisan migrate --seed``` to create the tables and seed the data into the database
 - Run ```php artisan storage:link``` to link the storage
