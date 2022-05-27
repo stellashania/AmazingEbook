@@ -1,6 +1,6 @@
 ## Amazing Ebook
 
-The Amazing Ebook project was created for the final exam project of the Web Programming course. It is an imaginary ebook store that provides an ebook rental service. Both users and admin can access the website with additonal account maintenance functionality for the admins of the website. 
+The Amazing Ebook project was created for the final exam project of the Web Programming course. It is an imaginary ebook store that provides an ebook rental service. Both users and admins can access the website with additional account maintenance functionality for the admins of the website. 
 
 
 ## Features
