@@ -31,7 +31,7 @@ The Amazing Ebook project was created for the final exam project of the Web Prog
 ![5](https://user-images.githubusercontent.com/79920236/170663376-9032a252-baf9-4685-900b-f12907de1d5b.png)
 
 
-### How to Run the App
+## How to Run the App
 
 - Required apps to install: XAMPP, Composer, Node.js
 - Pull the project
